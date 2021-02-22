@@ -78,4 +78,4 @@ Una vez hecho esto solo debemos de irnos a nuestro navegador y solo debemos de e
 
 ![instalador de drupal](https://raw.githubusercontent.com/FranJaviMN/elementos-grado/main/Implantacion/docker/instalar-drupal-docker.png)
 
-![drupal en docker]()
+![drupal en docker](https://raw.githubusercontent.com/FranJaviMN/elementos-grado/main/Implantacion/docker/Drupal-docker.png)
