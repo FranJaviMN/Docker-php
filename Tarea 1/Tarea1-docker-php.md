@@ -18,18 +18,7 @@
 
 ## Contenedor con mariadb
 
-Para ello lo que vamos a usar es una base de datos mariadb a partir de una imagen ya creada, en este caso de nombre **mariadb**, para ello vamos a crear una nueva red que es donde vamos a tener nuestra aplicacion en php funcionando, para ello debemos de ejecutar el siguiente comando:
-```shell
-#### Creamos una nueva red en docker ####
-francisco@debian10:~$ docker network create -d bridge bookmedik_red
-e839a000856a0cf3e537912947a3d2fb3acb76c6a1865f210238f71abb07b342
-
-#### Comprobamos que se ha creado ####
-francisco@debian10:~$ docker network list | grep bookmedik_red
-e839a000856a        bookmedik_red       bridge              local
-```
-
-Una vez hayamos creado nuestra red, debemos de irnos al directorio de **Deploy** y debemos de generar un fichero para **docker-compose** para poder desplegar nuestro contenedor mariadb, el contenido de dicho fichero **docker-compose.yml** debe de ser el siguiente:
+debemos de irnos al directorio de **Deploy** y debemos de generar un fichero para **docker-compose** para poder desplegar nuestro contenedor mariadb, el contenido de dicho fichero **docker-compose.yml** debe de ser el siguiente:
 ```yml
 version: "3.1"
 
@@ -84,7 +73,7 @@ apache2ctl -D FOREGROUND
 De esta forma estamos cambiando las variables de entorno para que asi pueda reconocer la base de datos que esta en nuestro otro contenedor como la ejecución de apache2. Una vez hecho debemos de generar nuestra nueva imagen a partir del fichero de Dockerfile, para ello debemos de irnos al directorio **Build** y ejecutamos el siguiente comando:
 ```shell
 #### Construimos la imagen ####
-docker build -t franjavimn/bookmedik:v1 .
+francisco@debian10:~/Documentos/Implantacion/Docker/Docker-php/Tarea 1/Build$ docker build -t franjavimn/bookmedik:v1 .
 
 #### Vemos la imagen que nos ha creado ####
 francisco@debian10:~/Documentos/Implantacion/Docker/Docker-php/Tarea 1/Build$ docker image list
