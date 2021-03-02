@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+  db:
+    container_name: servidor_mysql-php-fpm
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: bookmedik
+      MYSQL_USER: bookmedik
+      MYSQL_PASSWORD: bookmedik
+      MYSQL_ROOT_PASSWORD: franciscojavier
+    volumes:
+      - /opt/mysql_bookmedik-php-fpm:/var/lib/mysql
+
+  bookmedik:
+    container_name: bookmedik-php-fpm
+    image: franjavimn/bookmedik-php-fpm:v1
+    restart: always
+    ports:
+      - 8085:80
+    volumes:
+      - /opt/bookmedik:/var/log/apache2
+      - /opt/sites-availables-php-fpm:/var/www/html
+    
